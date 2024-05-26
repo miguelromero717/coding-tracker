@@ -1,5 +1,5 @@
 import { signInWithGoogle } from '$lib/server/supabase/Auth';
-import { json } from '@sveltejs/kit';
+import { json, redirect } from '@sveltejs/kit';
 
 export const POST = async ({locals: { supabase }}) => {
 	const { data, error } = await signInWithGoogle(supabase);
@@ -8,5 +8,7 @@ export const POST = async ({locals: { supabase }}) => {
 		return json({ error: error.message }, { status: 500 });
 	}
 
-	return json({ data, success: true });
+	if (data.url) {
+		return redirect(301, data.url);
+	}
 };

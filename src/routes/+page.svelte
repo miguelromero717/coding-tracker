@@ -1,10 +1,16 @@
 <script lang="ts">
+	const signInWithGoogle = async () => {
+		const response = await fetch('/api/v1/auth', {
+			method: 'POST'
+		});
 
+		console.log(response);
+	};
 </script>
 
 <div class="mt-6 grid grid-cols-2 gap-4">
-	<a href="#"
-		 class="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent">
+	<button on:click={signInWithGoogle}
+		class="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent">
 		<svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
 			<path
 				d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z"
@@ -20,20 +26,5 @@
 				fill="#34A853" />
 		</svg>
 		<span class="text-sm font-semibold leading-6">Google</span>
-	</a>
-</div>
-
-<div class="mt-6 grid grid-cols-2 gap-4">
-	<a href="#"
-		 class="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent">
-		<svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-			<path
-				d="M22.675 0h-21.35C.596 0 0 .596 0 1.325v21.351C0 23.404.596 24 1.325 24H12.81v-9.294H9.692v-3.622h3.118V8.413c0-3.1 1.893-4.788 4.66-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.714-1.795 1.762v2.308h3.588l-.467 3.622h-3.121V24h6.116c.729 0 1.325-.596 1.325-1.324V1.325C24 .596 23.404 0 22.675 0z"
-				fill="#1877F2" />
-			<path
-				d="M16.671 24v-9.294h3.122l.467-3.622h-3.589v-2.308c0-1.048.292-1.762 1.796-1.762l1.917-.001v-3.24c-.332-.044-1.47-.143-2.795-.143-2.767 0-4.659 1.688-4.659 4.788v2.308H9.692v3.622h3.118V24h3.861z"
-				fill="#FFFFFF" />
-		</svg>
-		<span class="text-sm font-semibold leading-6">Facebook</span>
-	</a>
+	</button>
 </div>
